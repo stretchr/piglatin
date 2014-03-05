@@ -10,6 +10,7 @@ const (
 	firstLetterExceptionSuffix string = "d" + pigLatinSuffix
 )
 
+// Translate translates an English word into Pig latin.
 func Translate(in string) string {
 	first := in[0:1]
 	if strings.Contains(firstLetterExceptions, first) {
