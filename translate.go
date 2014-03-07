@@ -9,7 +9,7 @@ const (
 	firstLetterExceptions      string = "aeiou"
 	firstLetterExceptionSuffix string = "d" + pigLatinSuffix
 )
--// Translate translates one or more english words into the PigLatin equlivent
+// Translate translates one or more english words into the PigLatin equlivent
 func Translate(in string) string {
 	var pigLatinWords []string
 	englishWords := strings.Split(in, " ")
