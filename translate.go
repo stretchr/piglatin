@@ -9,13 +9,18 @@ const (
 	firstLetterExceptions      string = "aeiou"
 	firstLetterExceptionSuffix string = "d" + pigLatinSuffix
 )
-
-// Translate translates an English word into Pig latin.
+// Translate translates one or more english words into the PigLatin equlivent
 func Translate(in string) string {
-	first := in[0:1]
-	if strings.Contains(firstLetterExceptions, first) {
-		return in + firstLetterExceptionSuffix
-	} else {
-		return in[1:] + first + pigLatinSuffix
+	var pigLatinWords []string
+	englishWords := strings.Split(in, " ")
+
+	for _, word := range englishWords {
+		first := word[0:1]
+		if strings.Contains(firstLetterExceptions, first) {
+			pigLatinWords = append(pigLatinWords, word + firstLetterExceptionSuffix)
+		} else {
+			pigLatinWords = append(pigLatinWords, word[1:] + first + pigLatinSuffix)
+		}
 	}
+	return strings.Join(pigLatinWords, " ")
 }

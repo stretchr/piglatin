@@ -25,15 +25,17 @@ var translateTests = []struct {
 		in:  "egg",
 		out: "eggday",
 	},
+	{
+		in:  "egg hat cat dog",
+		out: "eggday athay atcay ogday",
+	},
 }
 
 func TestTranslate(t *testing.T) {
 
 	for i, test := range translateTests {
-
 		actual := Translate(test.in)
 		assert.Equal(t, test.out, actual, "Test %d", i)
-
-	}
+        }
 
 }
